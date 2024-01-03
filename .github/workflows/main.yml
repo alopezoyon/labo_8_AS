@@ -21,8 +21,8 @@ jobs:
 
     - name: Build and Push Docker Image
       run: |
-        docker build -t as-laboratorio8-web .
-        docker tag as-laboratorio8-web:latest ${{ secrets.DOCKERNAME }}/as-laboratorio8-web:latest
+        docker build -t as-laboratorio-8-web .
+        docker tag as-laboratorio-8-web:latest ${{ secrets.DOCKERNAME }}/as-laboratorio-8-web:latest
         docker push ${{ secrets.DOCKERNAME }}/as-laboratorio8-web:latest
 
     - name: Authenticate to Google Cloud
