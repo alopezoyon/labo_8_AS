@@ -45,6 +45,8 @@ jobs:
       working-directory: ./k8s  # Cambiar al directorio donde están tus archivos Kubernetes
       run: |
         kubectl apply -f bbdd-deployment.yaml
-        kubectl apply -f clusterIP.yaml
+        kubectl apply -f service-bd.yaml
         kubectl apply -f front-web-deployment.yaml
         kubectl apply -f loadBalancer.yaml
+        kubectl rollout restart deployment db-deployment
+        kubectl rollout restart deployment front-web-deployment
