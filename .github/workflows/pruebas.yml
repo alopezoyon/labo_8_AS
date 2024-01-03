@@ -1,0 +1,21 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - '*'
+      - '!main'
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Run Python Linting
+      uses: advanced-security/python-lint-code-scanning-action@v1
+      with:
+        linter: pylint
+        working-directory: ./app
